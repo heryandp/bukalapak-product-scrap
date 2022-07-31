@@ -32,10 +32,12 @@ class bukalapak():
                 self.grabproduk()
             else:
                 print("[!] Username tidak ditemukan!")
-        except:
+        except Exception as e:
+            print(e)
             print("[!] Website down!")
             exit()   
     def grabproduk(self):
+        print("=== GRABBING PRODUK ===")
         print("[+] Memulai download halaman produk ...")
         print("\x1B[3m" +"(delay 3 detik untuk menghindari anti-spam!)"+"\x1B[0m")
         api = apiurl+str(self.idseller)+'/products?offset=0&limit=50&access_token='+self.token
@@ -106,6 +108,14 @@ class bukalapak():
         f.close()
 
 print("[ BUKALAPAK-PRODUCT-GRABBER v1.0 by heryan ]")
+print("______       _         _                   _    ")
+print("| ___ \     | |       | |                 | |   ")
+print("| |_/ /_   _| | ____ _| | __ _ _ __   __ _| | __")
+print("| ___ \ | | | |/ / _` | |/ _` | '_ \ / _` | |/ /")
+print("| |_/ / |_| |   < (_| | | (_| | |_) | (_| |   < ")
+print("\____/ \__,_|_|\_\__,_|_|\__,_| .__/ \__,_|_|\_>")
+print("                              | |               ")
+print("                              |_|               ")
 print("[+] https://github.com/heryandp/bukalapak-product-scrap")
 sname = input("[+] Masukkan username seller: https://www.bukalapak.com/u/")        
 act = bukalapak(sname)
